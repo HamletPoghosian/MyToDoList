@@ -50,8 +50,14 @@ namespace MyToDoList
 		public IEnumerable<MyTask> ShowCompletit(MyToDoList todo)
 		{
 			return todo.Where(x => x.Isdone == true);
-
-
+		}
+		public IEnumerable<MyTask> ShowNotCompletit(MyToDoList todo)
+		{
+			return todo.Where(x => x.Isdone == false);
+		}
+		public IEnumerable<MyTask> ShowAll(MyToDoList todo)
+		{
+			return todo.Select(x=>x);
 		}
 		IEnumerator<MyTask> IEnumerable<MyTask>.GetEnumerator()
 		{
