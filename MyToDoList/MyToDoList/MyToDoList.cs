@@ -10,6 +10,7 @@ namespace MyToDoList
 	public class MyToDoList : IEnumerable<MyTask>
 	{
 		private List<MyTask> list = new List<MyTask>();
+		
 
 		public int Count { get => list.Count; }
 		public bool MyContains(MyTask ts)
@@ -17,7 +18,14 @@ namespace MyToDoList
 			return list.Contains(ts);
 
 		}
-
+		public void IsComletid(MyTask my)
+		{
+			my.Isdone = true;
+		}
+		public void NoComletid(MyTask my)
+		{
+			my.Isdone = false;
+		}
 		public void Add(MyTask mytask)
 		{
 			list.Add(mytask);
