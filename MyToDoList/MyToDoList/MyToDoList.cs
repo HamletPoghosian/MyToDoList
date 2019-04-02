@@ -11,6 +11,12 @@ namespace MyToDoList
 	{
 		private List<MyTask> list = new List<MyTask>();
 
+		public int Count { get => list.Count; }
+		public bool MyContains(MyTask ts)
+		{
+			return list.Contains(ts);
+
+		}
 
 		public void Add(MyTask mytask)
 		{
@@ -19,6 +25,7 @@ namespace MyToDoList
 		}
 		public void Del(MyTask mytask)
 		{
+
 			list.Remove(mytask);
 		}
 		public void AddtoIndex(MyTask mytask, int index)
@@ -32,6 +39,7 @@ namespace MyToDoList
 				list.Insert(index, mytask);
 			}
 		}
+
 		public IEnumerator GetEnumerator()
 		{
 			for (int i = 0; i < list.Count; i++)
@@ -39,9 +47,9 @@ namespace MyToDoList
 				yield return list[i];
 			}
 		}
-		public List<MyTask> ShowCompletit(MyToDoList todo)
+		public IEnumerable<MyTask> ShowCompletit(MyToDoList todo)
 		{
-			return todo.Where(x => x.Isdone == true).ToList();
+			return todo.Where(x => x.Isdone == true);
 
 
 		}
@@ -50,9 +58,6 @@ namespace MyToDoList
 			return list.GetEnumerator();
 		}
 
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			throw new NotImplementedException();
-		}
+		
 	}
 }

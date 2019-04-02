@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyToDoList
 {
-	public class MyTask
+	public class MyTask:IComparable
 	{
 		private string mywork;
 		private bool isdone;
@@ -48,6 +48,22 @@ namespace MyToDoList
 				}
 			}
 		}
+
+		public int CompareTo(object obj)
+		{
+			if (obj is MyTask)
+			{
+				return this.ToString().CompareTo(((MyTask)obj).ToString());
+			}
+						
+				throw new Exception("obj is not MyTask  ");
+			
+		}
+		public override bool Equals(object obj)
+		{
+			return  this.ToString()==((MyTask)obj).ToString();
+		}
+
 		public override string ToString()
 		{
 			return Mywork + "\t" + Isdone + "\t" + Deadline;
