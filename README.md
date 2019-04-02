@@ -11,9 +11,15 @@ This is a library where our assignments are kept
  
 The code example shows only those tasks that are made
 ```csharp
-public List<MyTask> ShowCompletit(MyToDoList todo)
-{
-return todo.Where(x => x.Isdone == true).ToList();
-}
+public IEnumerable<MyTask> ShowCompletit(MyToDoList todo)
+		{
+			return todo.Where(x => x.Isdone == true);
+		}
 ```
-
+The code example shows all  tasks 
+```csharp
+	public IEnumerable<MyTask> ShowAll(MyToDoList todo)
+		{
+			return todo.Select(x=>x);
+		}
+```
