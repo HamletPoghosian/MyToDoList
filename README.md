@@ -18,7 +18,7 @@ public IEnumerable<MyTask> ShowCompletit(MyToDoList todo)
 ```
 The code example shows all  tasks 
 ```csharp
-	public IEnumerable<MyTask> ShowAll(MyToDoList todo)
+public IEnumerable<MyTask> ShowAll(MyToDoList todo)
 {
 	return todo.Select(x=>x);
 }
